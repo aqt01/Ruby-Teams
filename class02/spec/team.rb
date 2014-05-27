@@ -1,7 +1,9 @@
 require 'spec_helper.rb'
 
-class Team < RuntimeError
+
+class TeamError < RuntimeError
 end
+
 
 =begin
 - Team
@@ -13,24 +15,38 @@ class Team
  
 	def initialize(name)
 		@TeamName = name
-		@Players = Player.new
+		@Players = Array.new
 	end
 
 	def add_player(name, position)
+		new_player = new Player(name,position)
+		@Players.push(new_player)
 	end
 
 	def remove_player(name)
+		return @Players.delete_if { |player| player.name.casecmp(name).zero? }}	
 	end
 
 	def filter_by_position(position)
 	    # returns players in the given position
+		return @Players.select { |player| player.position.casecmp(position).zero? }
 	end
 
 	def to_s
-	   # output team name + players list.
+	   # output team name + players list
+		le_output = "> "
+		@Players.each { |player| le_output += player.name + " Is " + player.position, " ; " }
+		le_output = le_output + "< "
 	end
 
-end
+	private
+	
+	def team_size
+		return @Players.uniq.size
+	end
+
+
+
 	#Test
 	describe Team do
 		describe "#new" do

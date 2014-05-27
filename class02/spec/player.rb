@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 
- class Player < RuntimeError
+ class PlayerError < RuntimeError
  end
   
  =begin
@@ -9,4 +9,10 @@ require 'spec_helper.rb'
 
 
 class Player
+	
+	attr_accessor :name, :positio
+ 
+	def to_s
+	end
+
 end
