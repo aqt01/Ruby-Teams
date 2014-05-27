@@ -74,7 +74,7 @@ class Team
 
 		describe "#to_s" do
 			if team_empty? 
-				:
+			
 		end
 
 	end

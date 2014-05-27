@@ -5,14 +5,19 @@ require 'spec_helper.rb'
   
  =begin
  - Team
- end
+ =end
 
 
 class Player
 	
 	attr_accessor :name, :positio
- 
+ 	def initialize (name, position)
+	@name = name
+	@position = position
+	end
+
 	def to_s
+		return :name + "Is " + :position
 	end
 
 end
