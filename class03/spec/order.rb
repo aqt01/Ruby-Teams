@@ -1,6 +1,11 @@
 require 'spec_helper'
 require 'yaml'
 
+
+ class OrderError < RuntimeError
+ end
+
+
 class Order
 	attr_accessor :products
 
@@ -34,6 +39,11 @@ class Order
         @products.select {|product| title == name }.first  
     end
  
+    def all_products()
+        # All products 
+        yaml_obj = YAML::dump( @products )
+    end
+
     def save
     	# maybe you could try dumping around here :)
     end
